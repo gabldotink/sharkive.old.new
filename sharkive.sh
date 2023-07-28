@@ -19,7 +19,9 @@
 # permissible by relevant laws. See the license texts for more details.
 
 # this variable makes bash all POSIX-y
-readonly POSIXLY_CORRECT='true' >/dev/null 2>&1
+##   POSIXLY_CORRECT might already be readonly, causing this to fail, but
+## then it means it’s already set, so it’s fine
+readonly POSIXLY_CORRECT='yes' >/dev/null 2>&1
 export POSIXLY_CORRECT >/dev/null 2>&1
 
 # disable pathname expansion (i.e. wildcards)
