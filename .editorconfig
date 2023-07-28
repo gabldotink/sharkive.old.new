@@ -1,0 +1,21 @@
+; sharkive [https://github.com/gabldotink/sharkive]
+; /.editorconfig
+; SPDX-License-Identifier: CC0-1.0 OR 0BSD
+
+root=true
+
+[.editorconfig,.gitattributes]
+insert_final_newline=true
+
+[COPYING.0bsd,COPYING.cc0-1.0]
+insert_final_newline=true
+
+[README.md]
+insert_final_newline=true
+trim_trailing_whitespace=false
+
+[sharkive.sh]
+end_of_line=lf
+indent_size=2
+indent_style=space
+insert_final_newline=true
