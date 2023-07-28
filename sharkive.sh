@@ -14,5 +14,3 @@
 # These rights that are granted to You may be affirmed by either
 # Creative Commons Zero 1.0 Universal (CC0 1.0) [./COPYING.CC0-1.0]
 # or the Zero-Clause BSD License [./COPYING.0BSD], at your own preference.
-
-
