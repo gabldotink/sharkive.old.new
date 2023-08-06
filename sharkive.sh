@@ -8,20 +8,18 @@
 
 # limit lines to 80 printed characters when possible --------------------------
 
-# © 2023 gabldotink <gabl@gabl.ink> and other sharkive contributors.
+# © 2023 gabldotink <gabl@gabl.ink> and other sharkive contributors.
 # sharkive is free software, dedicated to the public domain. You, the
 # individual or other entity receiving the software, may use, redistribute, and
 # modify it as you wish without asking permission or crediting the author(s).
 # These rights that are granted to you may be affirmed by either
-# Creative Commons Zero 1.0 Universal (CC0 1.0) [./COPYING.CC0-1.0] or
+# Creative Commons Zero 1.0 Universal (CC0 1.0) [./COPYING.CC0-1.0] or
 # the Zero-Clause BSD License (0BSD) [./COPYING.0BSD], at your own preference.
 # The software is provided as-is, with no warranties of any kind to the extent
 # permissible by law. See the license texts for more details.
 
 # this variable makes bash all POSIX-y
-##   POSIXLY_CORRECT might already be readonly, causing this to fail, but
-## then it means it’s already set, so it’s fine
-readonly POSIXLY_CORRECT='t' >/dev/null 2>&1
+readonly POSIXLY_CORRECT=t >/dev/null 2>&1
 export POSIXLY_CORRECT >/dev/null 2>&1
 
 # disable pathname expansion (i.e. wildcards)
@@ -35,12 +33,12 @@ script_file="$0"
 
 # TODO: align
 # copyright information
-readonly copying_note="© 2023 gabldotink <gabl@gabl.ink> and other sharkive contributors.
+readonly copying_note="© 2023 gabldotink <gabl@gabl.ink> and other sharkive contributors.
 sharkive is free software, dedicated to the public domain. You, the
 individual or other entity receiving the software, may use, redistribute, and
 modify it as you wish without asking permission or crediting the author(s).
 These rights that are granted to You may be affirmed by either
-Creative Commons Zero 1.0 Universal (CC0 1.0) or
+Creative Commons Zero 1.0 Universal (CC0 1.0) or
 the Zero-Clause BSD License (0BSD), at your own preference.
 The software is provided as-is, with no warranties of any kind to the extent
 permissible by law. See the license texts for more details.
@@ -197,7 +195,8 @@ message () {
 
 # short help text
 readonly usage_short="usage: $script_file [-h]
-try ‘$script_file -h’ for more information"
+try ‘$script_file -h’ for more information
+"
 
 # help text
 # TODO: add info while writing script
