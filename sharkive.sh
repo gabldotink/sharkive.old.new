@@ -29,11 +29,12 @@ set -f >/dev/null 2>&1
 
 # TODO: appropriately quote filename
 # get script filename
-script_file="$0"
+script_file="$0" >/dev/null 2>&1
 
 # TODO: align
 # copyright information
-readonly copying_note="© 2023 gabldotink <gabl@gabl.ink> and other sharkive contributors.
+readonly copying_note=\
+'© 2023 gabldotink <gabl@gabl.ink> and other sharkive contributors.
 sharkive is free software, dedicated to the public domain. You, the
 individual or other entity receiving the software, may use, redistribute, and
 modify it as you wish without asking permission or crediting the author(s).
@@ -43,12 +44,13 @@ the Zero-Clause BSD License (0BSD), at your own preference.
 The software is provided as-is, with no warranties of any kind to the extent
 permissible by law. See the license texts for more details.
 
-Try ‘$script_name -p CC0-1.0’ or ‘$script_name -p 0BSD’
+Try “'"$script_name"' -p CC0-1.0” or “'"$script_name"' -p 0BSD”
 for more information.
-"
+' >/dev/null 2>&1
 
 # CC0-1.0 license text
-readonly copying_cczero='Creative Commons Legal Code
+readonly copying_cczero=\
+'Creative Commons Legal Code
 
 CC0 1.0 Universal
 
@@ -169,10 +171,11 @@ express Statement of Purpose.
  d. Affirmer understands and acknowledges that Creative Commons is not a
     party to this document and has no duty or obligation with respect to
     this CC0 or use of the Work.
-'
+' >/dev/null 2>&1
 
 # 0BSD license text
-readonly copying_zerobsd='The BSD Zero Clause License (0BSD)
+readonly copying_zerobsd=\
+'The BSD Zero Clause License (0BSD)
 
 Copyright (c) 2023 gabldotink <gabl@gabl.ink> and other sharkive authors
 
@@ -186,29 +189,31 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
-'
+' >/dev/null 2>&1
 
 # print message with no tag
 message () {
   printf "$1"
-}
+} >/dev/null 2>&1
 
 # short help text
-readonly usage_short="usage: $script_file [-h]
-try ‘$script_file -h’ for more information
-"
+readonly usage_short=\
+'usage: '"$script_file"' [-h]
+try “'"$script_file"' -h” for more information
+' >/dev/null 2>&1
 
 # help text
 # TODO: add info while writing script
-readonly usage="sharkive | help
+readonly usage=\
+"sharkive | help
 usage: $script_file [-hp]
 
   -h    print this help message
   -p    print the specified message:
+          0BSD|0bsd
           help|usage
           copying|copyright|license
           CC0-1.0|cc0-1.0
-          0BSD|0bsd
 "
 
 # get options
@@ -218,21 +223,21 @@ while getopts ':hp:' opt; do
     message "$usage"
     ;;
   p) # print
-    if [ "$OPTARG" = 'help' ] || \
-       [ "$OPTARG" = 'usage' ]; then
+    if [ "$OPTARG" = 'help' ]||\
+       [ "$OPTARG" = 'usage' ];then
       message "$usage"
       exit 2
-  elif [ "$OPTARG" = 'copying' ] || \
-       [ "$OPTARG" = 'copyright' ] || \
-       [ "$OPTARG" = 'license' ]; then
+  elif [ "$OPTARG" = 'copying' ]||\
+       [ "$OPTARG" = 'copyright' ]||\
+       [ "$OPTARG" = 'license' ];then
       message "$copying_note"
       exit 2
-  elif [ "$OPTARG" = 'CC0-1.0' ] || \
-       [ "$OPTARG" = 'cc0-1.0' ]; then
+  elif [ "$OPTARG" = 'CC0-1.0' ]||\
+       [ "$OPTARG" = 'cc0-1.0' ];then
       message "$copying_cczero"
       exit 2
-  elif [ "$OPTARG" = '0BSD' ] || \
-       [ "$OPTARG" = '0bsd' ]; then
+  elif [ "$OPTARG" = '0BSD' ]||\
+       [ "$OPTARG" = '0bsd' ];then
       message "$copying_zerobsd"
       exit 2
     fi
