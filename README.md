@@ -8,6 +8,8 @@ SPDX-License-Identifier: CC0-1.0 OR 0BSD
 
 # `sharkive`
 
+_**NOTE:** I’m starting this over a _third_ time. What is my life._
+
 `sharkive`: a POSIX shell script to make it easy to contribute to the
 [Internet Archive](https://archive.org/).
 
